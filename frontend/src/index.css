@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-ivory text-charcoal;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display text-charcoal;
+  }
+  ::selection {
+    @apply bg-walnut/20;
+  }
+  :focus-visible {
+    outline: 2px solid theme("colors.walnut.DEFAULT");
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* Primary CTA - solid walnut, used for the single most important action per view */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-card bg-walnut px-6 py-3
+           font-body text-sm font-semibold text-ivory-100 transition-all duration-300 ease-editorial
+           hover:bg-walnut-dark active:scale-[0.98] disabled:opacity-40 disabled:pointer-events-none;
+  }
+
+  /* Secondary CTA - outline, for supporting actions alongside a primary one */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-card border border-charcoal/20 bg-transparent px-6 py-3
+           font-body text-sm font-semibold text-charcoal transition-all duration-300 ease-editorial
+           hover:border-charcoal hover:bg-charcoal hover:text-ivory-100 active:scale-[0.98]
+           disabled:opacity-40 disabled:pointer-events-none;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-1.5 font-body text-sm font-semibold text-walnut
+           transition-colors duration-200 hover:text-walnut-dark;
+  }
+
+  /* Editorial card: hairline border instead of soft drop-shadow, print-like feel */
+  .card-editorial {
+    @apply rounded-card border border-charcoal/10 bg-ivory-100 transition-all duration-300 ease-editorial;
+  }
+
+  .input-field {
+    @apply w-full rounded-card border border-charcoal/15 bg-ivory-100 px-4 py-3 font-body text-sm
+           text-charcoal placeholder:text-charcoal/40 transition-colors duration-200
+           focus:border-walnut focus:outline-none;
+  }
+
+  .label-field {
+    @apply mb-1.5 block font-body text-sm font-medium text-charcoal/80;
+  }
+
+  .section-eyebrow {
+    @apply font-body text-xs font-semibold tracking-wide text-brass;
+  }
+
+  .container-editorial {
+    @apply mx-auto w-full max-w-[1440px] px-6 sm:px-10 lg:px-16;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

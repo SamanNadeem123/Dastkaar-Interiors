@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# Environment variables - never commit real secrets
+.env
+.env.*.local
+
+# Testing / caches
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Local uploads (used only by the local-disk image fallback when Cloudinary is not configured)
+uploads/
+
+# OS
+.DS_Store
